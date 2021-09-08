@@ -22,6 +22,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Data", "UserManagement.Data\UserManagement.Data.csproj", "{33A1DEC0-F38C-494B-89AC-D5A87A3A390F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{EC26B4C1-FEA3-4F9A-BE31-EE51FB5FDE8F}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\UserManagement.postman_collection.json = Docs\UserManagement.postman_collection.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F1CE5D76-B091-4B66-B6B9-F5709A2B339F}"
 EndProject
