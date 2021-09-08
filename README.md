@@ -12,7 +12,7 @@ docker build -t usermanagement .
 
 After that, open Docker dashboard, access "Images" tab and them you'll can see the *usermanagement* image right there. Run it with **Local Host** 5000 port, and you are ready to go.
 
-## Using with Postman
+## Using with Postman 🚀
 You can grab the postman collection for this project inside **Docs** folder. It has some requests to use with this project, like:
 * Get all users;
 * Create user;
