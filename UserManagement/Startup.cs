@@ -10,11 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using UserManagement.Core.Http;
 using UserManagement.Data.Services;
 using UserManagement.Domain;
-using UserManagement.Domain.Repositories.Pessoas;
 using UserManagement.Domain.Repositories.Users;
 using UserManagement.Domain.Services;
 using UserManagement.Domain.Validations;
-using UserManagement.Infra.Repositories.Pessoas;
 using UserManagement.Infra.Repositories.Users;
 using UserManagement.Data.Handlers;
 
@@ -36,7 +34,6 @@ namespace UserManagement
             services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("UserManagement", null));
             services.AddScoped<ICepService, ViaCepService>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IPessoaRepository, PessoaRepository>();
             services.AddTransient<IHttpHandler, HttpClientHandler>();
             services.AddMvc().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ApiContext>());
             services.AddMediatR(this.GetType().Assembly, typeof(ApiContext).Assembly);
