@@ -1,6 +1,8 @@
 # User management API (CQRS, FluentValidations, MediatR)
 This project consists in a user management API using the CQRS pattern with MediatR and FluentValidations, and EntityFramework.InMemory ORM for demo purposes.
 
+This project was built in Asp.Net Core 2.2.
+
 ## Building the docker image
 In the root folder, open your command tool and run:
 
