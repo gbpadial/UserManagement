@@ -1,5 +1,5 @@
-# User management API using CQRS, MediatR and FluentValidations.
-This project consists in a user management API using the CQRS pattern with MediatR and FluentValidations. Also, it has a Dockerfile to simple use it in Docker.
+# User management API (CQRS, FluentValidations, MediatR)
+This project consists in a user management API using the CQRS pattern with MediatR and FluentValidations, and EntityFramework.InMemory ORM for demo purposes.
 
 ## Building the docker image
 In the root folder, open your command tool and run:
