@@ -1,7 +1,7 @@
 # User management API (CQRS, FluentValidations, MediatR)
 This project consists in a user management API using the CQRS pattern with MediatR and FluentValidations, and EntityFramework.InMemory ORM for demo purposes.
 
-This project was built in Asp.Net Core 2.2.
+This project was built in .Net 8.0.
 
 ## Building the docker image
 In the root folder, open your command tool and run:
@@ -10,12 +10,16 @@ In the root folder, open your command tool and run:
 docker build -t usermanagement .
 ```
 
-After that, open Docker dashboard, access "Images" tab and them you'll can see the *usermanagement* image right there. Run it with **Local Host** 5000 port, and you are ready to go.
+## Running the docker image
 
-## Using with Postman 🚀
-You can grab the postman collection for this project inside **Docs** folder. It has some requests to use with this project, like:
-* Get all users;
-* Create user;
-* Delete user;
-* Update user;
-* Get by email;
+Run the following command in a terminal:
+
+```
+docker run -p 8080:8080 usermanagement
+```
+
+And them, open it in your browser: 
+
+```
+http://localhost:8080/swagger/index.html
+```

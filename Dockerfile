@@ -1,26 +1,25 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
-WORKDIR /usermanagement
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
 
 COPY *.sln ./
-COPY UserManagement.Data/*.csproj ./UserManagement.Data/
-COPY UserManagement.Core/*.csproj ./UserManagement.Core/
-COPY UserManagement.Domain/*.csproj ./UserManagement.Domain/
-COPY UserManagement.Infra/*.csproj ./UserManagement.Infra/
-COPY UserManagement/*.csproj ./UserManagement/
-COPY UserManagement.Tests/*.csproj ./UserManagement.Tests/
+COPY src/Application/UserManagement.Application/*.csproj src/Application/UserManagement.Application/
+COPY src/Domain/UserManagement.Domain/*.csproj src/Domain/UserManagement.Domain/
+COPY src/Infra/UserManagement.Infra/*.csproj src/Infra/UserManagement.Infra/
+COPY src/Presentation/UserManagement.WebUI/*.csproj src/Presentation/UserManagement.WebUI/
+COPY src/Presentation/UserManagement.WebUI.Core/*.csproj src/Presentation/UserManagement.WebUI.Core/
+COPY tests/UserManagement.Tests/*.csproj tests/UserManagement.Tests/
+
 RUN dotnet restore
 
-WORKDIR /usermanagement
 COPY . .
-RUN dotnet build -c Release -o /out
 
-FROM build-env AS publish
-RUN dotnet publish -c Release -o /usermanagement
+RUN dotnet publish src/Presentation/UserManagement.WebUI/UserManagement.WebUI.csproj -c Release -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
-WORKDIR /usermanagement
-EXPOSE 80
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
 
-COPY --from=publish /usermanagement .
+COPY --from=build /app/publish .
 
-ENTRYPOINT [ "dotnet", "UserManagement.WebUI.dll" ]
+EXPOSE 8080
+
+ENTRYPOINT ["dotnet", "UserManagement.WebUI.dll"]
