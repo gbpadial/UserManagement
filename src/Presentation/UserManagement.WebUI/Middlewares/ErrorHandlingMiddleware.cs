@@ -12,7 +12,7 @@ using UserManagement.Domain.Errors;
 namespace UserManagement.WebUI.Middlewares;
 
 
-public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : IMiddleware
+public class ErrorHandlingMiddleware() : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
